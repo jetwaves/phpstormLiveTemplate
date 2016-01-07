@@ -7,4 +7,10 @@
       <option name="JS_STATEMENT" value="true" />
     </context>
   </template>
+  <template name="api" value="    async.waterfall(&#10;        [function(callback){&#10;            cacheHelper.getHeader(callback);&#10;        },&#10;        function(headers,callback){&#10;            $END$//urllib.get('/Product/info', headers, callback );&#10;            var postData = {};&#10;            urllib.post('/Product/info', headers, postData, callback );&#10;        },&#10;        function(result, callback){&#10;            res.send(result);&#10;        }],&#10;        function(err,result){&#10;            console.log('   $PARAM$.$PARAM$()       error !!   err = ');console.dir(err);&#10;            console.log('       result = ');        console.dir(result);&#10;            res.json({code: err, msg: JSON.parse(result)});&#10;        }&#10;    );" description="call API with asycn waterfall and token generation" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
 </templateSet>

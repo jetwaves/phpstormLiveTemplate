@@ -128,7 +128,6 @@
     <context />
   </template>
   <template name="ob" value="ob_start();&#10;$SELECTION$&#10;$END_FN$();$END$" description="output buffering" toReformat="false" toShortenFQNames="true">
-    <variable name="SELECTION" expression="" defaultValue="" alwaysStopAt="false" />
     <variable name="END_FN" expression="enum(&quot;ob_get_clean&quot;, &quot;ob_get_contents&quot;, &quot;ob_get_flush&quot;, &quot;ob_end_flush&quot;, &quot;ob_end_clean&quot;)" defaultValue="ob_get_clean" alwaysStopAt="true" />
     <context>
       <option name="HTML_TEXT" value="false" />
