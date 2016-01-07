@@ -1,0 +1,10 @@
+<templateSet group="JavaScript">
+  <template name="aswf" value="    async.waterfall(&#10;        [function(callback){&#10;            var postData = {&#10;                mac         :   mac,&#10;            };&#10;            $END$&#10;            var url = '/*******';&#10;            urllib.post(url, REQ_HEADERS, postData, callback );&#10;        },&#10;        function(callback){&#10;&#10;        },&#10;        function(result, callback){&#10;            res.send(result);&#10;        }],&#10;        function(err,result){&#10;            console.log('   $PARAM$.$PARAM$()       error !!.   err = ');console.dir(err);&#10;            console.log('       result = ');        console.dir(result);&#10;            res.json(err);&#10;        }&#10;    );&#10;" description="async.waterfall   template" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="JS_EXPRESSION" value="false" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>

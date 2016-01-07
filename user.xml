@@ -1,0 +1,44 @@
+<templateSet group="user">
+  <template name="list_dir" value="function list_files($dir) {&#10;        if (is_dir($dir)) {&#10;            if ($handle = opendir($dir)) {&#10;                while (($file = readdir($handle)) !== false) {&#10;                    if ($file != &quot;.&quot; &amp;&amp; $file != &quot;..&quot; &amp;&amp; $file != &quot;Thumbs.db&quot;) {&#10;                        echo '&lt;a target=&quot;_blank&quot; href=&quot;' . $dir . $file . '&quot;&gt;' . $file . '&lt;/a&gt;&lt;br&gt;' . &quot;\n&quot;;&#10;                    }&#10;                }&#10;                closedir($handle);&#10;            }&#10;        }&#10;    }" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="SQL" value="false" />
+      <option name="JSP" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="TypeScript" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="PHP" value="true" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="parse_json_data" value="$json_string='{&quot;id&quot;:1,&quot;name&quot;:&quot;foo&quot;,&quot;email&quot;:&quot;foo@foobar.com&quot;,&quot;interest&quot;:[&quot;wordpress&quot;,&quot;php&quot;]} ';&#10;$obj=json_decode($json_string);&#10;echo $obj-&gt;name; //prints foo&#10;echo $obj-&gt;interest[1]; //prints php" description="parse json string to object" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="SQL" value="false" />
+      <option name="JSP" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="TypeScript" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="PHP" value="true" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+</templateSet>
