@@ -1,0 +1,9 @@
+<templateSet group="nodejs">
+  <template name="efunc" value="function $PARAM$(req, res){&#10;    $END$&#10;}" description="express function(req,res)" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>
