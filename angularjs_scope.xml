@@ -123,4 +123,22 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
+  <template name="$get" value="$http.get('$URL$').&#10;    success(function(data, status, headers, config) {&#10;        $PARAM$&#10;    }).&#10;    error(function(data, status, headers, config) {&#10;        $END$&#10;    });" description="$http.get(url).success(func).error(func)" toReformat="false" toShortenFQNames="true">
+    <variable name="URL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="$post" value="$http.post('$URL$', $postData).&#10;    success(function(data, status, headers, config) {&#10;        $PARAM$&#10;    }).&#10;    error(function(data, status, headers, config) {&#10;        $END$&#10;    });" description="$http.post(url).success(func).error(func)" toReformat="false" toShortenFQNames="true">
+    <variable name="URL" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
 </templateSet>
