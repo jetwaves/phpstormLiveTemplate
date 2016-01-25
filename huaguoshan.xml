@@ -1,0 +1,67 @@
+<templateSet group="huaguoshan">
+  <template name="pu" value="$ocLazyLoad.load(['/webapp/c/$ENTITY$/$CONTROLLER$.js']).then(function(){&#10;    ngDialog.openConfirm({&#10;        template: '/webapp/v/$ENTITY$/$TEMPLATE$.html',           className: 'ngdialog-theme-defaul900t',&#10;        controller : '$CONTROLLER$',               preCloseCallback: 'preCloseCallbackOnScope',&#10;        closeByDocument: false,     closeByEscape: false,   showClose: false,    scope: $scope,&#10;        resolve: {&#10;            params : function(){&#10;                return {&#10;                    action : '',&#10;                    data  : '$END$'&#10;                };&#10;            }&#10;        }&#10;    }).then(function (value) {&#10;        console.log('   $CONTROLLER$ confirmed. value ', value);&#10;        $scope.retDialog1 = value;&#10;    }, function (reason) {&#10;        console.log('   $CONTROLLER$ rejected. Reason: ', reason);&#10;    });&#10;}, function(e){&#10;    console.log('   $ENTITY$.$CONTROLLER$()       error = ');&#10;    console.dir(e);&#10;});" description="call a popup window overlay and work with returned values" toReformat="false" toShortenFQNames="true">
+    <variable name="ENTITY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONTROLLER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TEMPLATE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="api" value="var url = '$URL$';&#10;var postData = $END$;&#10;urllib.api(url, postData).then(function(result){&#10;    res.send(result);&#10;}).catch(function(err){&#10;    res.json({code: err, msg: JSON.parse(result)});&#10;});" description="call api with urllib.api and returns a promise" toReformat="false" toShortenFQNames="true">
+    <variable name="URL" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="wapi" value="async.waterfall(&#10;    [function(callback){cacheHelper.getHeader(callback);},&#10;    function(headers,callback){&#10;        $END$//urllib.get('/Product/info', headers, callback );&#10;        var postData = {};&#10;        urllib.post('/Product/info', headers, postData, callback );&#10;    },&#10;    function(result, callback){&#10;        res.send(result);&#10;    }],&#10;    function(err,result){&#10;        console.log('   $NAME$.$FUNCTION$()       error !!   err = ');console.dir(err);&#10;        console.log('       result = ');        console.dir(result);&#10;        res.json({code: err, msg: JSON.parse(result)});&#10;    }&#10;);" description="call API with asycn waterfall and token generation" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FUNCTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="aswf" value="    async.waterfall(&#10;        [function(callback){&#10;            var postData = {&#10;                mac         :   mac,&#10;            };&#10;            $END$&#10;            var url = '/*******';&#10;            urllib.post(url, REQ_HEADERS, postData, callback );&#10;        },&#10;        function(callback){&#10;&#10;        },&#10;        function(result, callback){&#10;            res.send(result);&#10;        }],&#10;        function(err,result){&#10;            console.log('   $PARAM$.$PARAM$()       error !!.   err = ');console.dir(err);&#10;            console.log('       result = ');        console.dir(result);&#10;            res.json(err);&#10;        }&#10;    );&#10;" description="async.waterfall   template" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="JS_EXPRESSION" value="false" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="cld" value="console.log('   $PARAM$');  console.dir($END$);" description="console.log  +  console.dir" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JS_EXPRESSION" value="false" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="nf" value="function $NAME$(req,res,next){&#10;    // console.log('       $controller$.$NAME$()     req.body = '); console.dir(req.body);&#10;    $END$&#10;}" description="express function (req,res,next) with console.log and console.dir" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="controller" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="efunc" value="function $PARAM$(req, res, next){&#10;    $END$&#10;}" description="express function(req,res)" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="ngc" value="angular.module('$MODULENAME$')&#10;    .controller('$CONTROLLER$', [&#10;    '$scope', '$filter','_','$http', '$rootScope', 'ngDialog', '$http', /* 注意！！ 不要忘了这里的逗号 , */&#10;                                        /*  注意 ！！， 前面字符串注入顺序必须和function里面的注入顺序一致         */&#10;    function($scope,$filter,  _, $http, $rootScope , ngDialog,  $http  ){&#10;    &#9;$END$&#10;&#10;&#10;    }]);&#10;" description="posadmin用的angular控制器定义模板，带常用的依赖注入" toReformat="false" toShortenFQNames="true">
+    <variable name="MODULENAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONTROLLER" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>

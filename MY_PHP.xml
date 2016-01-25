@@ -4,7 +4,6 @@
     <context />
   </template>
   <template name="try" value="try {&#10;&#9;$SELECTION$&#10;&#10;} catch ($EXCEPTION_TYPE$ $e) {&#10;&#9;$END$&#10;}&#10;" description="try {} catch () {}" toReformat="true" toShortenFQNames="true">
-    <variable name="SELECTION" expression="" defaultValue="" alwaysStopAt="false" />
     <variable name="EXCEPTION_TYPE" expression="classNameComplete()" defaultValue="Exception" alwaysStopAt="true" />
     <context>
       <option name="HTML_TEXT" value="false" />
