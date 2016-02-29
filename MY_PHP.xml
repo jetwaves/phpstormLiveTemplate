@@ -165,7 +165,6 @@
   </template>
   <template name="if" value="if ($COND$) {&#10;&#9;$SELECTION$&#10;}$END$" description="if wrap" toReformat="true" toShortenFQNames="true">
     <variable name="COND" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="SELECTION" expression="" defaultValue="" alwaysStopAt="false" />
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
