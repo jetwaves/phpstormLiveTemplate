@@ -37,6 +37,8 @@
       <option name="JAVA_SCRIPT" value="false" />
       <option name="TypeScript" value="false" />
       <option name="PHP" value="true" />
+      <option name="PHP Comment" value="true" />
+      <option name="PHP String Literal" value="true" />
       <option name="OTHER" value="false" />
     </context>
   </template>
@@ -114,17 +116,6 @@
       <option name="PHP" value="true" />
       <option name="OTHER" value="false" />
     </context>
-  </template>
-  <template name="fore" value="foreach ($SELECTION$ as $$$VAR_VALUE$) {&#10;    $END$&#10;}&#10;" description="foreach(iterable_expr as $value) {...}" toReformat="true" toShortenFQNames="true">
-    <variable name="SELECTION" expression="" defaultValue="" alwaysStopAt="false" />
-    <variable name="VAR_VALUE" expression="" defaultValue="" alwaysStopAt="true" />
-    <context />
-  </template>
-  <template name="forek" value="foreach ($SELECTION$ as $$$VAR_KEY$ =&gt; $$$VAR_VALUE$) {&#10;    $END$&#10;}&#10;" description="foreach(iterable_expr as $key =&gt; $value) {...}" toReformat="true" toShortenFQNames="true">
-    <variable name="SELECTION" expression="" defaultValue="" alwaysStopAt="false" />
-    <variable name="VAR_KEY" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="VAR_VALUE" expression="" defaultValue="" alwaysStopAt="true" />
-    <context />
   </template>
   <template name="ob" value="ob_start();&#10;$SELECTION$&#10;$END_FN$();$END$" description="output buffering" toReformat="false" toShortenFQNames="true">
     <variable name="END_FN" expression="enum(&quot;ob_get_clean&quot;, &quot;ob_get_contents&quot;, &quot;ob_get_flush&quot;, &quot;ob_end_flush&quot;, &quot;ob_end_clean&quot;)" defaultValue="ob_get_clean" alwaysStopAt="true" />
