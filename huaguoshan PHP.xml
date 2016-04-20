@@ -1,0 +1,10 @@
+<templateSet group="huaguoshan PHP">
+  <template name="prrr" value="Log::info('     $CONTROLLER$.$ACTION$()          $VAR$ = '.print_r($VAR$, true));" description="log with print_r" toReformat="false" toShortenFQNames="true">
+    <variable name="CONTROLLER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ACTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+</templateSet>
