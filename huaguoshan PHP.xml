@@ -1,15 +1,33 @@
 <templateSet group="huaguoshan PHP">
-  <template name="prrr" value="Log::info('     $CONTROLLER$.$ACTION$()          $VAR$ = '.print_r($VAR$, true));" description="log with print_r" toReformat="false" toShortenFQNames="true">
-    <variable name="CONTROLLER" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="ACTION" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="prrr" value="Log::info('     '.__method__.'() line:'.__line__.'     $VAR$ = '.print_r($VAR$, true));" description="log with print_r" toReformat="false" toShortenFQNames="true">
     <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="PHP" value="true" />
     </context>
   </template>
-  <template name="psql" value="Log::info('     $CONTROLLER$.$ACTION$()          Last SQL  = '.DBUtil::getLastSQL());" description="print last SQL statement into Log" toReformat="false" toShortenFQNames="true">
-    <variable name="CONTROLLER" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="psql" value="Log::info('     '.__method__.'() line:'.__line__.'     Last SQL  = '.DBUtil::getLastSQL());" description="print last SQL statement into Log" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="apifunc" value="/**&#10; * $DESCRIPTION$&#10; * @POST(&quot;/api/$ENTITY$/$ACTION$&quot;)&#10; * @Versions({&quot;v1&quot;})&#10; * @Transaction({&#10; *      @Request({}),&#10; *      @Response(200, body={&#10; *                          &quot;data&quot;:{&#10; *                                  },&#10; *                          &quot;count&quot;:1,&#10; *                          &quot;result&quot;:&quot;true&quot;,&#10; *                          &quot;msg&quot;:&quot;blabla...&quot;})&#10; * })&#10; */&#10;public function $ACTION$(){&#10;    //验证规则&#10;    $rules = [&#10;/*            'FK_client_gid' =&gt; 'required|exists:client_change_log',&#10;        'start_time'    =&gt; 'required|digits:10'*/&#10;    ];&#10;    $objData = $this-&gt;request-&gt;all();&#10;    $validator = app('validator')-&gt;make($objData, $rules);&#10;    if ($validator-&gt;fails()) return parent::ApiResponse('', 'false', 0, Util::getValidatorErrorMessage($validator));&#10;    //Log::info('     '.__method__.'() line:'.__line__.'     $VAR = '.print_r($VAR, true));&#10;    $END$&#10;    return 'end';&#10;}" description="posapi function with dingo Doc,laravel validator, log template." toReformat="false" toShortenFQNames="true">
+    <variable name="DESCRIPTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ENTITY" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="ACTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="fore" value="foreach ( $LIST$ as $ELEMENT$ ) {&#10;    $END$&#10;}&#10;" description="foreach(iterable_expr as $value) {...}" toReformat="true" toShortenFQNames="true">
+    <variable name="LIST" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ELEMENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="forek" value="foreach ($SELECTION$ as $VAR_KEY$ =&gt; $VAR_VALUE$) {&#10;    $END$&#10;}&#10;" description="foreach(iterable_expr as $key =&gt; $value) {...}" toReformat="true" toShortenFQNames="true">
+    <variable name="VAR_KEY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VAR_VALUE" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="PHP" value="true" />
     </context>
