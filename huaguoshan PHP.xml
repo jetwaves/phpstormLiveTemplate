@@ -62,4 +62,28 @@
       <option name="PHP" value="true" />
     </context>
   </template>
+
+  <template name="tprr" value="$this-&gt;info('     '.__method__.'() line:'.__line__.'     $VAR$ = '.print_r($VAR$, true));" description="this-&gt;info( print_r() )" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="tsql" value="$this-&gt;info('     '.__method__.'() line:'.__line__.'     LastSQL $VAR$ = '.print_r(DBUtil::getLastSQL(), true));" description="this-&gt;info('  last sql ='.DBUtl::getlastSQL());" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="arrb" value="$VAR$ = array_build($VAR$, function($key,$val){&#10;    $END$&#10;    return [$key,$val];&#10;});" description="array build with callback function" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="arrw" value="$VAR$ = array_where($VAR$, function($key,$val){&#10;    $END$&#10;    return [$key,$val];&#10;});" description="array_where with call back function" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+
 </templateSet>
