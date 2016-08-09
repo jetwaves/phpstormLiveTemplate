@@ -62,7 +62,6 @@
       <option name="PHP" value="true" />
     </context>
   </template>
-
   <template name="tprr" value="$this-&gt;info('     '.__method__.'() line:'.__line__.'     $VAR$ = '.print_r($VAR$, true));" description="this-&gt;info( print_r() )" toReformat="false" toShortenFQNames="true">
     <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -85,5 +84,4 @@
     <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
     <context />
   </template>
-
 </templateSet>
