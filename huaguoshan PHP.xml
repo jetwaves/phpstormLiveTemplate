@@ -32,4 +32,34 @@
       <option name="PHP" value="true" />
     </context>
   </template>
+  <template name="func" value="/**&#10; * $DESCRIPTION$&#10; * @POST(&quot;/api/$ENTITY$/$ACTION$&quot;)&#10; * @Versions({&quot;v1&quot;})&#10; * @Transaction({&#10; *      @Request({}),&#10; *      @Response(200, body={&#10; *                          &quot;data&quot;:{&#10; *                                  },&#10; *                          &quot;count&quot;:1,&#10; *                          &quot;result&quot;:&quot;true&quot;,&#10; *                          &quot;msg&quot;:&quot;blabla...&quot;})&#10; * })&#10; */&#10;public function $FUNCTION_NAME$(){&#10;    try {&#10;        $objData = $this-&gt;request-&gt;all();&#10;        $END$ $ENTITY$ = checkInputData($objData);                 // 输入数据验证&#10;        DB::transaction(function () use($objData) {           // 开始事务&#10;&#10;&#10;        });&#10;        return parent::ApiResponse('data', 'true', 1, 'success message');&#10;    } catch (Exception $e) {&#10;        Log::info('     Exception in '.__method__.'() line:'.__line__.'   message   = '.(Util::getExceptionMessage($e)) );&#10;        return $this-&gt;ApiResponse('', Err::$ERROR, 0, Util::getExceptionMessage($e));&#10;    }&#10;}" description="API function template with try catch &amp;&amp;  DB::transaction" toReformat="false" toShortenFQNames="true">
+    <variable name="DESCRIPTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ENTITY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ACTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FUNCTION_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="useall" value="use Log;&#10;use posapi\Helpers\Util;&#10;use posapi\app\Helpers\DBUtil;&#10;use Exception;&#10;$END$" description="use all common libs for laravel" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="upsql" value="Util::uecho('     '.__method__.'() line:'.__line__.'     $END$ '.DBUtil::getLastSQL(), true);" description="echo last SQL statement in console with util::uecho" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="uecho" value="Util::uecho('     '.__method__.'() line:'.__line__.'     $END$ ', true);&#10;" description="Util::uecho" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="uprr" value="Util::uprint_r($VAR$, true);" description="Util::print_r" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
 </templateSet>
