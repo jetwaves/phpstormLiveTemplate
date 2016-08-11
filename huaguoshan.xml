@@ -32,7 +32,14 @@
       <option name="JS_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="cld" value="console.log('   ---- LOG: ' + __filename + os.EOL + '        $PARAM$ $END$ = ');  console.dir($PARAM$);" description="console.log  +  console.dir" toReformat="false" toShortenFQNames="true">
+  <template name="ncld" value="console.log('   ---- LOG: ' + __filename + os.EOL + '        $PARAM$ $END$ = ');  console.dir($PARAM$);" description="nodejs : console.log  +  console.dir" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JS_EXPRESSION" value="false" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="cld" value="console.log('           $PARAM$ $END$ = ');  console.dir($PARAM$);" description="console.log  +  console.dir" toReformat="false" toShortenFQNames="true">
     <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JS_EXPRESSION" value="false" />
