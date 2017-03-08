@@ -5,7 +5,7 @@
       <option name="PHP" value="true" />
     </context>
   </template>
-  <template name="psql" value="Log::info('     '.__method__.'() line:'.__line__.'     Last SQL  = '.DBUtil::getLastSQL());" description="print last SQL statement into Log" toReformat="false" toShortenFQNames="true">
+  <template name="psql" value="Log::info('     '.__method__.'() line:'.__line__.'     Last SQL  $END$  = '.DBUtil::getLastSQL());" description="print last SQL statement into Log" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="PHP" value="true" />
     </context>
@@ -41,7 +41,7 @@
       <option name="PHP" value="true" />
     </context>
   </template>
-  <template name="useall" value="use Log;&#10;use posapi\Helpers\Util;&#10;use posapi\app\Helpers\DBUtil;&#10;use Exception;&#10;$END$" description="use all common libs for laravel" toReformat="false" toShortenFQNames="true">
+  <template name="useall" value="use Log;&#10;use posapi\Helpers\Util;&#10;use posapi\app\Helpers\DBUtil;&#10;use Exception;&#10;use DB;&#10;$END$" description="use all common libs for laravel" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="PHP" value="true" />
     </context>
@@ -62,13 +62,13 @@
       <option name="PHP" value="true" />
     </context>
   </template>
-  <template name="tprr" value="$this-&gt;info('     '.__method__.'() line:'.__line__.'     $VAR$ = '.print_r($VAR$, true));" description="this-&gt;info( print_r() )" toReformat="false" toShortenFQNames="true">
+  <template name="tprr" value="$this-&gt;info('     '.__method__.'() line:'.__line__.'     $VAR$  $END$  = '.print_r($VAR$, true));" description="this-&gt;info( print_r() )" toReformat="false" toShortenFQNames="true">
     <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="PHP" value="true" />
     </context>
   </template>
-  <template name="tsql" value="$this-&gt;info('     '.__method__.'() line:'.__line__.'     LastSQL $VAR$ = '.print_r(DBUtil::getLastSQL(), true));" description="this-&gt;info('  last sql ='.DBUtl::getlastSQL());" toReformat="false" toShortenFQNames="true">
+  <template name="tsql" value="$this-&gt;info('     '.__method__.'() line:'.__line__.'     LastSQL $VAR$  $END$ = '.print_r(DBUtil::getLastSQL(), true));" description="this-&gt;info('  last sql ='.DBUtl::getlastSQL());" toReformat="false" toShortenFQNames="true">
     <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="PHP" value="true" />
@@ -90,6 +90,11 @@
       <option name="PHP" value="true" />
       <option name="PHP Comment" value="false" />
       <option name="PHP String Literal" value="false" />
+    </context>
+  </template>
+  <template name="prsql" value="Log::info('     '.__method__.'() line:'.__line__.'     Last SQL  $END$  = '.DBUtil::getReportLastSQL());" description="print sql for report database" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
     </context>
   </template>
 </templateSet>
