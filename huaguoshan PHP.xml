@@ -1,5 +1,5 @@
 <templateSet group="huaguoshan PHP">
-  <template name="prrr" value="Log::info('     '.__method__.'() line:'.__line__.'     $VAR$ $END$  = '.print_r($VAR$, true));" description="log with print_r" toReformat="false" toShortenFQNames="true">
+  <template name="prrr" value="Log::info('     '.__method__.'() line:'.__line__.'     $VAR$ $END$ = '.print_r($VAR$, true));" description="log with print_r" toReformat="false" toShortenFQNames="true">
     <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="PHP" value="true" />
@@ -83,14 +83,6 @@
   <template name="arrw" value="$VAR$ = array_where($VAR$, function($key,$val){&#10;    $END$&#10;    return [$key,$val];&#10;});" description="array_where with call back function" toReformat="false" toShortenFQNames="true">
     <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
     <context />
-  </template>
-  <template name="tpprr" value="Log::write('     '.__method__.'() line:'.__line__.'     $VAR$ $END$  = '.print_r($VAR$, true));" description="thinkphp   print_r" toReformat="false" toShortenFQNames="true">
-    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="PHP" value="true" />
-      <option name="PHP Comment" value="false" />
-      <option name="PHP String Literal" value="false" />
-    </context>
   </template>
   <template name="prsql" value="Log::info('     '.__method__.'() line:'.__line__.'     Last SQL  $END$  = '.DBUtil::getReportLastSQL());" description="print sql for report database" toReformat="false" toShortenFQNames="true">
     <context>
