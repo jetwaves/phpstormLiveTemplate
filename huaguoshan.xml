@@ -94,7 +94,7 @@
       <option name="PHP" value="false" />
     </context>
   </template>
-  <template name="apic" value="var url = '$API_URL$';&#10;var key = '$CACHE_KEY_NAME$';&#10;var expiresInSecs = undefined;     // 缓存过期的秒数.     如果留空，则使用系统配置 = 30天。&#10;var postData = req.body;&#10;urllib.apiOrCache(url, postData, key, expiresInSecs ).then(function(result){&#10;    res.send(result);&#10;}).catch(function(err){&#10;    res.json({code: err, msg: JSON.parse(result)});&#10;});" description="call api with cache. when found in cache, send value in cache, or else , get it from API" toReformat="false" toShortenFQNames="true">
+  <template name="apic" value="var url = '$API_URL$';&#10;var postData = req.body;&#10;var key = '$CACHE_KEY_NAME$';&#10;//var key = &quot;$CACHE_KEY_NAME$&quot; + &quot;_&quot; + JSON.stringify(postData);&#10;//var expiresInSecs = undefined;     // 缓存过期的秒数.     如果留空，则使用系统配置 = 30天。&#10;var expiresInSecs = 300;     // 缓存过期的秒数.     如果留空，则使用系统配置 = 30天。&#10;urllib.apiOrCache(url, postData, key, expiresInSecs ).then(function(result){&#10;    res.send(result);&#10;}).catch(function(err){&#10;    res.json({code: err, msg: JSON.parse(result)});&#10;});" description="call api with cache. when found in cache, send value in cache, or else , get it from API" toReformat="false" toShortenFQNames="true">
     <variable name="API_URL" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="CACHE_KEY_NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
