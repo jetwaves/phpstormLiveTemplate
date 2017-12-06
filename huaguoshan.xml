@@ -71,7 +71,7 @@
       <option name="JS_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="uss" value="&quot;use strict&quot;;" description="use strict" toReformat="false" toShortenFQNames="true">
+  <template name="uss" value="&quot;use strict&quot;;&#10;var path = require('path');&#10;var os = require('os');&#10;var fs = require('fs');&#10;var async = require('async');&#10;var moment = require('moment');&#10;var Promise = require('promise');&#10;//var _ = require('underscore');&#10;//var exec = require('child_process').exec;&#10;" description="use strict" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_SCRIPT" value="true" />
       <option name="JS_EXPRESSION" value="true" />
@@ -97,6 +97,30 @@
   <template name="apic" value="var url = '$API_URL$';&#10;var postData = req.body;&#10;var key = '$CACHE_KEY_NAME$';&#10;//var key = &quot;$CACHE_KEY_NAME$&quot; + &quot;_&quot; + JSON.stringify(postData);&#10;//var expiresInSecs = undefined;     // 缓存过期的秒数.     如果留空，则使用系统配置 = 30天。&#10;var expiresInSecs = 300;     // 缓存过期的秒数.     如果留空，则使用系统配置 = 30天。&#10;urllib.apiOrCache(url, postData, key, expiresInSecs ).then(function(result){&#10;    res.send(result);&#10;}).catch(function(err){&#10;    res.json({code: err, msg: JSON.parse(result)});&#10;});" description="call api with cache. when found in cache, send value in cache, or else , get it from API" toReformat="false" toShortenFQNames="true">
     <variable name="API_URL" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="CACHE_KEY_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="log" value="console.log(moment().format('YYYY-MM-DD HH:mm:ss') + ' INFO: ' + __filename + os.EOL + '        $PARAM$ $END$ = ');  console.dir($PARAM$);" description="log::info()" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="loge" value="console.log(moment().format('YYYY-MM-DD HH:mm:ss') + ' ERROR: ' + __filename + os.EOL + '        $PARAM$ $END$ = ');  console.dir($PARAM$);" description="log::error()" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="logf" value="console.log(moment().format('YYYY-MM-DD HH:mm:ss') + ' FATAL: ' + __filename + os.EOL + '        $PARAM$ $END$ = ');  console.dir($PARAM$);" description="log::fatal()" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_SCRIPT" value="true" />
       <option name="JS_EXPRESSION" value="true" />
