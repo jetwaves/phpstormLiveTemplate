@@ -103,7 +103,34 @@
       <option name="JS_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="dog" value="console.log(moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);&#10;console.log('┏---- INFO: ----- start [$PARAM$] -----');console.dir($PARAM$);console.log('┗---- INFO: -----  end  [$PARAM$] -----')" description="log::info() +  print_r();" toReformat="false" toShortenFQNames="true">
+  <template name="dog" value="console.log(&quot;\r\n&quot;+moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);&#10;console.log('┏---- INFO: ----- start [$PARAM$ @ $FUNC$] -----');console.dir($PARAM$);console.log('┗---- INFO: -----  end  [$PARAM$ @ $FUNC$] -----');" description="log::info() +  print_r();" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FUNC" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="doge" value="console.log(&quot;\r\n&quot;+moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);&#10;console.log('┏---- ERROR: ----- start [$PARAM$ @ $FUNC$] -----');console.dir($PARAM$);console.log('┗---- ERROR: -----  end  [$PARAM$ @ $FUNC$] -----');" description="log::error() +  print_r();" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FUNC" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="dogf" value="console.log(&quot;\r\n&quot;+moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);&#10;console.log('┏---- FATAL: ----- start [$PARAM$ @ $FUNC$] -----');console.dir($PARAM$);console.log('┗---- FATAL: -----  end  [$PARAM$ @ $FUNC$] -----');" description="log::fatal() +  print_r();" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FUNC" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="log" value="console.log(&quot;\r\n&quot;+moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);console.log('\tINFO:\t$PARAM$ $END$ = '+$PARAM$ );" description="log::info()" toReformat="false" toShortenFQNames="true">
     <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_SCRIPT" value="true" />
@@ -111,7 +138,7 @@
       <option name="JS_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="doge" value="console.log(moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);&#10;console.log('┏---- ERROR: ----- start [$PARAM$] -----');console.dir($PARAM$);console.log('┗---- ERROR: -----  end  [$PARAM$] -----')" description="log::error() +  print_r();" toReformat="false" toShortenFQNames="true">
+  <template name="loge" value="console.log(&quot;\r\n&quot;+moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);console.log('   ERROR:    $PARAM$ $END$ = ' + $PARAM$ );" description="log::error()" toReformat="false" toShortenFQNames="true">
     <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_SCRIPT" value="true" />
@@ -119,7 +146,7 @@
       <option name="JS_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="dogf" value="console.log(moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);&#10;console.log('┏---- FATAL: ----- start [$PARAM$] -----');console.dir($PARAM$);console.log('┗---- FATAL: -----  end  [$PARAM$] -----')" description="log::fatal() +  print_r();" toReformat="false" toShortenFQNames="true">
+  <template name="logf" value="console.log(&quot;\r\n&quot;+moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);console.log('   FATAL:    $PARAM$ $END$ = ' + $PARAM$ );" description="log::fatal()" toReformat="false" toShortenFQNames="true">
     <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_SCRIPT" value="true" />
@@ -127,31 +154,7 @@
       <option name="JS_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="log" value="console.log(moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);console.log('\tINFO:\t$PARAM$ $END$ = '+$PARAM$ );" description="log::info()" toReformat="false" toShortenFQNames="true">
-    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="JAVA_SCRIPT" value="true" />
-      <option name="JS_EXPRESSION" value="true" />
-      <option name="JS_STATEMENT" value="true" />
-    </context>
-  </template>
-  <template name="loge" value="console.log(moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);console.log('   ERROR:    $PARAM$ $END$ = ' + $PARAM$ );" description="log::error()" toReformat="false" toShortenFQNames="true">
-    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="JAVA_SCRIPT" value="true" />
-      <option name="JS_EXPRESSION" value="true" />
-      <option name="JS_STATEMENT" value="true" />
-    </context>
-  </template>
-  <template name="logf" value="console.log(moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);console.log('   FATAL:    $PARAM$ $END$ = ' + $PARAM$ );" description="log::fatal()" toReformat="false" toShortenFQNames="true">
-    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="JAVA_SCRIPT" value="true" />
-      <option name="JS_EXPRESSION" value="true" />
-      <option name="JS_STATEMENT" value="true" />
-    </context>
-  </template>
-  <template name="lo" value="console.log(moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);console.log('\tINFO:\t $PARAM$ ');" description="log::info(msg)" toReformat="false" toShortenFQNames="true">
+  <template name="lo" value="console.log(&quot;\r\n&quot;+moment().format('Y/MM/DD HH:mm:ss\t\t\t\t')+__filename);console.log('\tINFO:\t $PARAM$ $END$ ');" description="log::info(msg)" toReformat="false" toShortenFQNames="true">
     <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_SCRIPT" value="true" />

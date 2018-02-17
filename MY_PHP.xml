@@ -172,4 +172,11 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
+  <template name="lo" value="Log::info('     '.__method__.'() line:'.__line__.'     $END$  ');" description="Write a laravel log message" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+      <option name="PHP Comment" value="false" />
+      <option name="PHP String Literal" value="false" />
+    </context>
+  </template>
 </templateSet>
